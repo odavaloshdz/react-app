@@ -1,7 +1,30 @@
 import React from 'react';
 import { render } from 'react-dom';
-const App = ()=>{
-  return <h1> Hola mundo </h1>;
+
+function SaludarEnIdiomas({ idioma }) {
+  if (idioma === 'es') {
+    return <span>Hola</span>;
+  } else {
+    return <span>Hello</span>;
+  }
 }
 
-render (<App/>, document.getElementById('react-app'));
+const Saludo = () => {
+  const nombre = 'Oscar';
+  return (
+    <p>
+      {' '}
+      <SaludarEnIdiomas idioma="es" /> {`${nombre}`}{' '}
+    </p>
+  );
+};
+
+const App = () => {
+  return (
+    <h1>
+      <Saludo />
+    </h1>
+  );
+};
+
+render(<App />, document.getElementById('react-app'));
